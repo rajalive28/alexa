@@ -15,8 +15,12 @@ package com.alexa.tools.handlers;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
+import com.amazon.ask.model.Context;
+import com.amazon.ask.model.IntentRequest;
+import com.amazon.ask.model.Request;
 import com.amazon.ask.model.Response;
 
+import java.util.Map;
 import java.util.Optional;
 
 import static com.amazon.ask.request.Predicates.intentName;
@@ -30,6 +34,8 @@ public class HelloWorldIntentHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
+        IntentRequest intentRequest = (IntentRequest)input.getRequestEnvelope().getRequest();
+        intentRequest.getIntent();
         String speechText = "Hello world";
        return input.getResponseBuilder()
                 .withSpeech(speechText)
